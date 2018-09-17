@@ -68,6 +68,9 @@ namespace appui
             // Add the --enable-media-stream flag
             //settings.CefCommandLineArgs.Add("enable-media-stream", "1");
 
+            //https://bitbucket.org/xilium/xilium.cefglue/issues/129/i-want-to-implement-the-js-call-c-method
+            // https://stackoverflow.com/questions/18225261/xilium-cefglue-how-to-execute-javascript-with-return-value
+            //CefMainArgs mainArgs = new CefMainArgs(new string[] { "--force-renderer-accessibility" });
             //CefMainArgs mainArgs = new CefMainArgs(new string[] { "--enable-media-stream" });
             //CefMainArgs mainArgs = new CefMainArgs(new string[] { "--enable-usermedia-screen-capturing" });
             CefMainArgs mainArgs = new CefMainArgs(new string[] { });
