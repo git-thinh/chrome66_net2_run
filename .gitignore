@@ -179,3 +179,6 @@ Debugx86/VideoDecodeStats/CURRENT
 Debugx86/VideoDecodeStats/LOCK
 Debugx86/VideoDecodeStats/LOG
 Debugx86/VideoDecodeStats/MANIFEST-000001
+.vs/appui/v14/.suo
+Debugx86/appui.pdb
+Runx86/appui.vshost.exe
