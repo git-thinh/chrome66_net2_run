@@ -169,3 +169,8 @@ appBrowser/obj/Debug/appBrowser.exe
 appBrowser/obj/Debug/appBrowser.csprojResolveAssemblyReference.cache
 appBrowser/obj/Debug/appBrowser.csproj.GenerateResource.Cache
 appBrowser/obj/Debug/appBrowser.csproj.FileListAbsolute.txt
+Debugx86/consoleBrowser.exe
+Debugx86/consoleBrowser.pdb
+Debugx86/consoleBrowser.vshost.exe
+Debugx86/consoleBrowser.vshost.exe.manifest
+Debugx86/LastOnPaint.png
