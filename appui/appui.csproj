@@ -103,6 +103,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Runx86\bin\api.js">
+      <Link>api.js</Link>
+    </Content>
     <Content Include="icon.ico" />
     <Content Include="JsTest.js" />
     <Content Include="ReadMe.txt" />
