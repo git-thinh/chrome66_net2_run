@@ -53,6 +53,9 @@
             var m_request = CefRequest.FromNative(request);
             var m_callback = CefCallback.FromNative(callback);
 
+            //////string url = m_request.Url;
+            //////Debug.WriteLine(url);
+
             var result = ProcessRequest(m_request, m_callback);
             return result ? 1 : 0;
         }

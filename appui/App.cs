@@ -78,7 +78,14 @@ namespace appui
 
             CefRuntime.Initialize(mainArgs, settings, app, IntPtr.Zero);
 
-            //CefRuntime.AddCrossOriginWhitelistEntry("http://localhost", "http", "", true);
+            // register custom scheme handler
+            // CefRuntime.RegisterSchemeHandlerFactory("http", DumpRequestDomain, new DemoAppSchemeHandlerFactory());
+            // CefRuntime.RegisterSchemeHandlerFactory("http", DumpRequestDomain, new TestDumpRequestHandlerFactory());
+            // CefRuntime.AddCrossOriginWhitelistEntry("http://localhost", "http", "", true);
+            // CefRuntime.AddCrossOriginWhitelistEntry("http://localhost", "http", "_app.cross.domain", false);
+            //CefRuntime.RegisterSchemeHandlerFactory("https", "", new TestDumpRequestHandlerFactory());
+            //CefRuntime.RegisterSchemeHandlerFactory("https", "", new MySchemeHandlerFactory());
+
 
             if (!settings.MultiThreadedMessageLoop)
                 Application.Idle += (sender, e) => CefRuntime.DoMessageLoopWork();

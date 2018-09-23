@@ -1,0 +1,14 @@
+google.com/ads/
+google.com.vn/ads/
+facebook.com/plugins/
+facebook.com/rsrc
+googletagmanager.com
+google-analytics.com
+doubleclick.net
+polyad.net
+twitter.com
+googleapis.com
+scorecardresearch.com
+knowlead.io
+logperf
+usi-saas.vnexpress.net

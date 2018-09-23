@@ -7,24 +7,6 @@ using Xilium.CefGlue.WindowsForms;
 
 namespace appui
 {
-    public class V8Handler : Xilium.CefGlue.CefV8Handler
-    {
-
-        protected override bool Execute(string name, CefV8Value obj, CefV8Value[] arguments, out CefV8Value returnValue, out string exception)
-        {
-
-            if (name == "testy")
-                Console.WriteLine("CALLED TESTY");
-            else
-                Console.WriteLine("CALLED SOMETHING WEIRED ({0})", name);
-
-            returnValue = CefV8Value.CreateNull();
-            exception = null;
-
-            return true;
-        }
-
-    }
 
     public class fBrowser : Form
     {
@@ -42,7 +24,10 @@ namespace appui
             };
             browser.Parent = this;
             browser.BrowserCreated += (se, ev) => f_browserCreated();
+            browser.Browser.cef
 
+
+            #region UI
 
             Panel footer = new Panel()
             {
@@ -87,39 +72,34 @@ namespace appui
                 this.Top = 0;
                 this.Left = 0;
             };
+
+            #endregion
+        }
+
+        void f_runJS(string js) {
+            browser.Browser.GetMainFrame().ExecuteJavaScript(js, URL, 0);
         }
 
         void f_menuClick()
         {
-            ///browser.Browser.GetMainFrame().ExecuteJavaScript("document.getElementById('btnOK').onclick = function () {alert('hello world!'); }", URL, 0);
-            //browser.Browser.GetMainFrame().ExecuteJavaScript("alert(test.myval);", URL, 0);
-            //browser.Browser.GetMainFrame().ExecuteJavaScript("alert(document.body.innerText);", URL, 0);
-
-            //////var result = CefV8Value.CreateNull();
-            ////CefV8Value result = CefV8Value.CreateString("");
-            ////CefV8Exception err;
-            ////browser.Browser.GetMainFrame().V8Context.TryEval("return document.body.innerText;", URL, 0, out result, out err);
-            ////MessageBox.Show(result.ToString());
-
-
         }
 
         void f_browserCreated()
         {
-            browser.Browser.GetMainFrame().LoadUrl(URL);
-
-            var host = browser.Browser.GetHost();
-            var wi = CefWindowInfo.Create();
-            wi.SetAsPopup(IntPtr.Zero, "DevTools");
-            host.ShowDevTools(wi, new DevToolsWebClient(), new CefBrowserSettings(), new CefPoint(0, 0));
+            f_browserGo(URL);
+            f_runJS("___api.f_init();");
         }
 
         void f_browserGo(string url)
         {
+            browser.Browser.StopLoad();
             browser.Browser.GetMainFrame().LoadUrl(url);
             ui_browAddressTextBox.Text = url;
             URL = url;
         }
+
+
+        #region [ TEST ]
 
 
         void f_test_sendProcessMessageCommand()
@@ -152,6 +132,32 @@ namespace appui
                 });
             }
         }
+
+        void f_test_ShowDevTools()
+        {
+            //var host = browser.Browser.GetHost();
+            //var wi = CefWindowInfo.Create();
+            //wi.SetAsPopup(IntPtr.Zero, "DevTools");
+            //host.ShowDevTools(wi, new DevToolsWebClient(), new CefBrowserSettings(), new CefPoint(0, 0));
+        }
+
+        void f_test_runJS()
+        {
+            ///browser.Browser.GetMainFrame().ExecuteJavaScript("document.getElementById('btnOK').onclick = function () {alert('hello world!'); }", URL, 0);
+            //browser.Browser.GetMainFrame().ExecuteJavaScript("alert(test.myval);", URL, 0);
+            //browser.Browser.GetMainFrame().ExecuteJavaScript("alert(document.body.innerText);", URL, 0);
+
+            //////var result = CefV8Value.CreateNull();
+            ////CefV8Value result = CefV8Value.CreateString("");
+            ////CefV8Exception err;
+            ////browser.Browser.GetMainFrame().V8Context.TryEval("return document.body.innerText;", URL, 0, out result, out err);
+            ////MessageBox.Show(result.ToString());
+
+
+        }
+
+
+        #endregion
     }
 
     class DevToolsWebClient : CefClient

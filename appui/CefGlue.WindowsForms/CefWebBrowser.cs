@@ -53,10 +53,22 @@
 
 		internal void InvokeIfRequired(Action a)
 		{
-			if (InvokeRequired)
-				Invoke(a);
-			else
-				a();
+            if (InvokeRequired)
+            {
+                try
+                {
+                    Invoke(a);
+                }
+                catch { }
+            }
+            else
+            {
+                try
+                {
+                    a();
+                }
+                catch { }
+            }
 		}
 
         protected virtual CefWebClient CreateWebClient()
@@ -78,6 +90,7 @@
                 windowInfo.SetAsChild(Handle, new CefRectangle { X = 0, Y = 0, Width = Width, Height = Height });
 
                 var client = CreateWebClient();
+                
 
                 var settings = BrowserSettings;
                 if (settings == null) settings = new CefBrowserSettings { };
