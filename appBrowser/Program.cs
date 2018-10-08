@@ -89,6 +89,7 @@ namespace appBrowser
             CefApp app = new TestApp();
 
             var exitCode = CefRuntime.ExecuteProcess(mainArgs, app);
+
             Console.WriteLine("CefRuntime.ExecuteProcess() returns {0}", exitCode);
             if (exitCode != -1)
                 return exitCode;
@@ -99,6 +100,12 @@ namespace appBrowser
             //////CefRuntime.Initialize(mainArgs, settings, app);
             CefRuntime.Initialize(mainArgs, settings, app, IntPtr.Zero);
 
+
+            // register custom scheme handler
+            //CefRuntime.RegisterSchemeHandlerFactory("http", "192.168.56.102", new ProxySchemeHandlerFactory());
+            
+            //CefRuntime.RegisterSchemeHandlerFactory("http", DumpRequestDomain, new TestDumpRequestHandlerFactory());
+            // CefRuntime.AddCrossOriginWhitelistEntry("http://localhost", "http", "", true);
 
             if (!settings.MultiThreadedMessageLoop)
             {
