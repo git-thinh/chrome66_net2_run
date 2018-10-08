@@ -242,3 +242,17 @@ CefGlue/obj/x86/Debug/Xilium.CefGlue.dll
 CefGlue/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 CefGlue/obj/x86/Debug/CefGlue.csproj.FileListAbsolute.txt
 appui/obj/Debug/build.force
+.vs/appui/v15/Server/sqlite3/db.lock
+.vs/appui/v15/.suo
+.vs/appui/v15/Server/sqlite3/storage.ide
+.vs/Xilium.CefGlue/v15/.suo
+.vs/Xilium.CefGlue/v15/Server/sqlite3/db.lock
+.vs/Xilium.CefGlue/v15/Server/sqlite3/storage.ide
+.vs/Xilium.CefGlue/v15/Server/sqlite3/storage.ide-shm
+.vs/Xilium.CefGlue/v15/Server/sqlite3/storage.ide-wal
+appBrowser/obj/Debug/appBrowser.csproj.CoreCompileInputs.cache
+appui/obj/Debug/appui.csproj.CoreCompileInputs.cache
+appui/obj/x86/Debug/appui.csproj.CoreCompileInputs.cache
+CefGlue/obj/Debug/CefGlue.csproj.CoreCompileInputs.cache
+CefGlue/obj/x86/Debug/CefGlue.csproj.CoreCompileInputs.cache
+consoleBrowser/obj/Debug/consoleBrowser.csproj.CoreCompileInputs.cache
